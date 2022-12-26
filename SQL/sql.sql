@@ -1,8 +1,8 @@
-drop database if exists shop;
+drop database if exists shopv3;
 
-create database shop;
+create database shopv3;
 
-use shop;
+use shopv3;
 
 create table user(
 	Id int primary key auto_increment,
@@ -138,7 +138,7 @@ insert into Price values (1,799999,current_timestamp(),date_add(current_timestam
 insert into ProductType values (1,'Áo Thun'),(2,'Áo Khoác');
 insert into ShippingType values (1,'Nhanh',50000),(2,'Thường',30000);
 insert into `Status` values (1,'Enable'),(2,'Disable'),(3,'Delete');
-insert into Amount values (1,3,1,50),(1,3,2,50),(1,3,3,50),(1,3,4,50),(1,3,5,50),(1,3,6,50),
+insert into Amount (ProductId,ColorId,SizeId,Amount) values (1,3,1,50),(1,3,2,50),(1,3,3,50),(1,3,4,50),(1,3,5,50),(1,3,6,50),
 	 (2,4,1,50),(2,4,2,50),(2,4,3,50),(2,4,4,50),(2,4,5,50),(2,4,6,50);
 insert into Product values (1,1,'Áo Thun Xanh',1,'','Áo thun xanh','Ao_thun_xanh.png',current_timestamp(),1),
 	(2,2,'Áo khoác',2,'','Áo khoác','Ao_khoac.png',current_timestamp(),1);
