@@ -102,6 +102,7 @@ create table ProductType(
 );
 
 create table Amount(
+	Id int primary key auto_increment, 
 	ProductId int,
     ColorId int,
     SizeId int,
