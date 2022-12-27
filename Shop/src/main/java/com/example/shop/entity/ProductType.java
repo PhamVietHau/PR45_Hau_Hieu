@@ -3,10 +3,16 @@ package com.example.shop.entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "producttype")
 public class ProductType {
     @Id
@@ -17,36 +23,5 @@ public class ProductType {
     @OneToMany(mappedBy = "productType")
     private List<Product> productList;
 
-    public ProductType(int id, String name, List<Product> productList) {
-        this.id = id;
-        this.name = name;
-        this.productList = productList;
-    }
 
-    public ProductType() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
-    }
 }

@@ -1,10 +1,17 @@
 package com.example.shop.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "color")
 public class Color {
     @Id
@@ -14,36 +21,4 @@ public class Color {
     @OneToMany(mappedBy = "color")
     private List<Amount> amountList;
 
-    public Color(int id, String name, List<Amount> amountList) {
-        this.id = id;
-        this.name = name;
-        this.amountList = amountList;
-    }
-
-    public Color() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Amount> getAmountList() {
-        return amountList;
-    }
-
-    public void setAmountList(List<Amount> amountList) {
-        this.amountList = amountList;
-    }
 }

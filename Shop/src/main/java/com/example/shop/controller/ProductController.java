@@ -12,6 +12,7 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(value = "all")
+
     public Object getAll() {
         return productService.getAll();
     }
