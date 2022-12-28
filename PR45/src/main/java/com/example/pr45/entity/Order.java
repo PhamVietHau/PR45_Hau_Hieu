@@ -18,5 +18,5 @@ public class Order {
     private int StatusId;
     private int ShippingInfoId;
     private int ShippingTypeId;
-    private Date TimeCreate;
+
 }
