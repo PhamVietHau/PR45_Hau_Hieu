@@ -17,9 +17,8 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
-    private String Role;
-
+    private int id;
+    private String role;
     @OneToMany(mappedBy = "role")
     private List<User> userList;
 

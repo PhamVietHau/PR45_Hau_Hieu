@@ -16,20 +16,17 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 //    private int roleId;
-    private String UserName;
-    private String Password;
-    private String Email;
-
-
+    private String userName;
+    private String password;
+    private String email;
+    private Date timeCreate;
     @OneToMany(mappedBy = "user")
     private List<Order> orderList;
     @OneToMany(mappedBy = "user")
     private List<ShippingInfo> shippingInfoList;
     @ManyToOne
-    @JoinColumn(name = "RoleId")
+    @JoinColumn(name = "roleId")
     private Role role;
-
-
 }

@@ -16,9 +16,9 @@ import java.util.List;
 public class Color {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
-    private String Name;
-    @OneToOne(mappedBy = "color")
-    private Amount amount;
+    private int id;
+    private String name;
+    @OneToMany(mappedBy = "color")
+    private List<Amount> amountList;
 
 }

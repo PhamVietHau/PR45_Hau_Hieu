@@ -8,23 +8,25 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "amount")
+@IdClass(AmountId.class)
 public class Amount {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+
 //    private int productId;
 //    private int colorId;
 //    private int sizeId;
-    private int Amount;
-
+//    private int amount;
+    @Id
     @ManyToOne
-    @JoinColumn(name = "ProductId")
+    @JoinColumn(name = "productId")
     private Product product;
-
-    @OneToOne
-    @JoinColumn(name = "ColorId")
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "colorId")
     private Color color;
-    @OneToOne
-    @JoinColumn(name = "SizeId")
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "sizeId")
     private Size size;
+    @Column(name = "amount")
+    private int amount;
 }
