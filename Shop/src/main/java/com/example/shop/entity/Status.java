@@ -23,8 +23,8 @@ public class Status {
 
     @OneToMany(mappedBy = "status")
     private List<Order> orderList;
-    @OneToMany(mappedBy = "status")
-    private List<Product> productList;
+    @OneToOne(mappedBy = "status")
+    private Product productList;
 
 
 }

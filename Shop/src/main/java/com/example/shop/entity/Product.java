@@ -25,7 +25,6 @@ public class Product {
     private String tag;
     private String description;
     private String image;
-    private Date timeCreate;
 //    private int statusId;
     @OneToMany(mappedBy = "product")
     private List<Amount> amountList;

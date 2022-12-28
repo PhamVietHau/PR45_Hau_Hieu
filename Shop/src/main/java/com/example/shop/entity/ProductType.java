@@ -20,8 +20,8 @@ public class ProductType {
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "productType")
-    private List<Product> productList;
+    @OneToOne(mappedBy = "productType")
+    private Product productList;
 
 
 }

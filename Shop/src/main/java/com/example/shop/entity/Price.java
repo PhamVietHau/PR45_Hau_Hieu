@@ -21,7 +21,7 @@ public class Price {
     private Date timeStart;
     private Date timeEnd;
 
-    @OneToMany(mappedBy = "price")
-    private List<Product> productList;
+    @OneToOne(mappedBy = "price")
+    private Product productList;
 
 }

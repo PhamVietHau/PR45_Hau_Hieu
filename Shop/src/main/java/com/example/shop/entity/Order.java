@@ -26,7 +26,7 @@ public class Order {
 //    private int shippingTypeId;
     private Date timeCreate;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
     @OneToOne
