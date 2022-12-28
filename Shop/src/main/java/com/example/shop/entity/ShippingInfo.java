@@ -24,7 +24,6 @@ public class ShippingInfo {
     private String Line1;
     private String City;
     private String County;
-    private String Zip;
     private String Country;
     private String Other;
 

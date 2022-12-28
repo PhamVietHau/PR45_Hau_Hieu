@@ -20,7 +20,7 @@ public class Coupon {
     private String Name;
     private String Description;
     private String Code;
-    private int Điscount;
+    private int Discount;
     private int MaxDiscountAmount;
     private Date Expired;
     private int Usage;

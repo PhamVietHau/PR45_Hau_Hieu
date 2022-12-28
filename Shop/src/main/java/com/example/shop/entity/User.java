@@ -21,7 +21,7 @@ public class User {
     private String UserName;
     private String Password;
     private String Email;
-    private Date TimeCreate;
+
 
     @OneToMany(mappedBy = "user")
     private List<Order> orderList;
