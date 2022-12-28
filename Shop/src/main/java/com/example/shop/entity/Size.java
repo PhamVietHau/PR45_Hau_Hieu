@@ -17,11 +17,11 @@ import java.util.List;
 public class Size {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
+    private int Id;
+    private String Name;
 
-    @OneToMany(mappedBy = "size")
-    private List<Amount> amountList;
+    @OneToOne(mappedBy = "size")
+    private Amount amount;
 
 
 }

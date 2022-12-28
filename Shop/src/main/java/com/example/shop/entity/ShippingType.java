@@ -17,9 +17,9 @@ import java.util.List;
 public class ShippingType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String service;
-    private int cost;
+    private int Id;
+    private String Service;
+    private int Cost;
 
     @OneToMany(mappedBy = "shippingType")
     private List<Order> orderList;

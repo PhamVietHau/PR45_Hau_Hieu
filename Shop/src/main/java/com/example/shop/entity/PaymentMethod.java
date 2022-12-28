@@ -15,9 +15,9 @@ import java.util.List;
 public class PaymentMethod {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String description;
+    private int Id;
+    private String Name;
+    private String Description;
 
     @OneToMany(mappedBy = "paymentMethod")
     private List<Order> orderList;

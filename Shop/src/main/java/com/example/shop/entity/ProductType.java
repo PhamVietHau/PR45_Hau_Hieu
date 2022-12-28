@@ -17,8 +17,8 @@ import java.util.List;
 public class ProductType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
+    private int Id;
+    private String Name;
 
     @OneToOne(mappedBy = "productType")
     private Product productList;

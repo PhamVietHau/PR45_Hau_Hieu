@@ -16,15 +16,15 @@ import java.util.List;
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String description;
-    private String code;
-    private int discount;
-    private int maxDiscountAmount;
-    private Date expired;
-    private int usage;
-    private boolean enable;
+    private int Id;
+    private String Name;
+    private String Description;
+    private String Code;
+    private int Điscount;
+    private int MaxDiscountAmount;
+    private Date Expired;
+    private int Usage;
+    private boolean Enable;
 
     @OneToMany(mappedBy = "coupon")
     private List<Order> orderList;

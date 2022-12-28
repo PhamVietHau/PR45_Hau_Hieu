@@ -18,13 +18,13 @@ import java.util.List;
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
+    private int Id;
+    private String Name;
 
-    @OneToMany(mappedBy = "status")
-    private List<Order> orderList;
     @OneToOne(mappedBy = "status")
-    private Product productList;
+    private Order orderList;
+    @OneToOne(mappedBy = "status")
+    private Product product;
 
 
 }

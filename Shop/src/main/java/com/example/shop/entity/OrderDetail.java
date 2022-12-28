@@ -13,17 +13,17 @@ import lombok.Setter;
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 //    private int orderId;
 //    private int productId;
-    private int quantity;
-    private int total;
+    private int Quantity;
+    private int Total;
 
-    @OneToOne
-    @JoinColumn(name = "orderId")
+    @ManyToOne
+    @JoinColumn(name = "OrderId")
     private Order order;
     @OneToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "ProductId")
     private Product product;
 
 

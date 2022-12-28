@@ -18,26 +18,26 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 //    private int productTypeId;
-    private String name;
+    private String Name;
 //    private int priceId;
-    private String tag;
-    private String description;
-    private String image;
+    private String Tag;
+    private String Description;
+    private String Image;
 //    private int statusId;
     @OneToMany(mappedBy = "product")
     private List<Amount> amountList;
-    @OneToMany(mappedBy = "product")
-    private List<OrderDetail> orderDetailList;
+    @OneToOne(mappedBy = "product")
+    private OrderDetail orderDetail;
     @OneToOne
-    @JoinColumn(name = "productTypeId")
+    @JoinColumn(name = "ProductTypeId")
     private ProductType productType;
     @OneToOne
-    @JoinColumn(name = "priceId")
+    @JoinColumn(name = "PriceId")
     private Price price;
     @OneToOne
-    @JoinColumn(name = "statusId")
+    @JoinColumn(name = "StatusId")
     private Status status;
 
 }

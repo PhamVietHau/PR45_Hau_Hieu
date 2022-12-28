@@ -11,20 +11,20 @@ import lombok.*;
 public class Amount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 //    private int productId;
 //    private int colorId;
 //    private int sizeId;
-    private int amount;
+    private int Amount;
 
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "ProductId")
     private Product product;
 
     @OneToOne
-    @JoinColumn(name = "colorId")
+    @JoinColumn(name = "ColorId")
     private Color color;
     @OneToOne
-    @JoinColumn(name = "sizeId")
+    @JoinColumn(name = "SizeId")
     private Size size;
 }

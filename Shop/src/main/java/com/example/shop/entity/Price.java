@@ -16,10 +16,10 @@ import java.util.List;
 public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int price;
-    private Date timeStart;
-    private Date timeEnd;
+    private int Id;
+    private int Price;
+    private Date TimeStart;
+    private Date TimeEnd;
 
     @OneToOne(mappedBy = "price")
     private Product productList;

@@ -16,33 +16,33 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 //    private int userId;
 //    private int paymentMethodId;
 //    private int couponId;
-    private int total;
+    private int Total;
 //    private int statusId;
 //    private int shippingInfoId;
 //    private int shippingTypeId;
-    private Date timeCreate;
+    private Date TimeCreate;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "UserId")
     private User user;
-    @OneToOne
-    @JoinColumn(name = "paymentMethodId")
+    @ManyToOne
+    @JoinColumn(name = "PaymentMethodId")
     private PaymentMethod paymentMethod;
-    @OneToOne
-    @JoinColumn(name = "couponId")
+    @ManyToOne
+    @JoinColumn(name = "CouponId")
     private Coupon coupon;
     @OneToOne
-    @JoinColumn(name = "statusId")
+    @JoinColumn(name = "StatusId")
     private Status status;
-    @OneToOne
-    @JoinColumn(name = "shippingInfoId")
+    @ManyToOne
+    @JoinColumn(name = "ShippingInfoId")
     private ShippingInfo shippingInfo;
-    @OneToOne
-    @JoinColumn(name = "shippingTypeId")
+    @ManyToOne
+    @JoinColumn(name = "ShippingTypeId")
     private ShippingType shippingType;
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> orderDetailList;

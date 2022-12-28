@@ -17,22 +17,21 @@ import java.util.List;
 public class ShippingInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 //    private int userId;
-    private String name;
-    private String phone;
-    private String line1;
-    private String line2;
-    private String city;
-    private String county;
-    private String zip;
-    private String country;
-    private String other;
+    private String Name;
+    private String Phone;
+    private String Line1;
+    private String City;
+    private String County;
+    private String Zip;
+    private String Country;
+    private String Other;
 
     @OneToMany(mappedBy = "shippingInfo")
     private List<Order> orderList;
-    @OneToOne
-    @JoinColumn(name = "userId")
+    @ManyToOne
+    @JoinColumn(name = "UserId")
     private User user;
 
 
