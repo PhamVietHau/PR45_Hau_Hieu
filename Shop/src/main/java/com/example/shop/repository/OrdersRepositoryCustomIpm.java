@@ -18,5 +18,6 @@ public class OrdersRepositoryCustomIpm implements OrdersRepositoryCustom{
     @Override
     public List<Orders> testAll() {
         return entityManager.createNativeQuery("select * from orders").getResultList();
+
     }
 }

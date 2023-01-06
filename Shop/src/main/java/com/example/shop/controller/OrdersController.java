@@ -36,7 +36,6 @@ public class OrdersController {
         List<Orders> ordersListReturn = new ArrayList<>();
         int rowFrom = page * count;
         int rowTo = page * count + count;
-    System.out.println(from);
         if(id == -1
                 && userId == -1
                 && paymentMethodId == -1
@@ -49,7 +48,7 @@ public class OrdersController {
                 && to.isEqual(LocalDate.parse("1970-01-01"))) return ordersList.subList(rowFrom,rowTo > ordersList.size() ? ordersList.size() : rowTo);
         for(Orders orders : ordersList) {
             Orders ordersClone = null;
-            if(id != -1) if(orders.getId() == id) ordersClone = orders; else continue;;
+            if(id != -1) if(orders.getId() == id) ordersClone = orders; else continue;
             if(userId != -1) if(orders.getUser().getId() == userId) ordersClone = orders; else continue;
             if(paymentMethodId != -1) if(orders.getPaymentMethod().getId() == paymentMethodId) ordersClone = orders; else continue;
             if(couponId != -1) if(orders.getCoupon().getId() == couponId) ordersClone = orders; else continue;
@@ -58,7 +57,7 @@ public class OrdersController {
             if(shippingTypeId != -1) if(orders.getShippingType().getId() == shippingTypeId) ordersClone = orders; else continue;
             if(!from.isEqual(LocalDate.parse("1970-01-01"))) if(orders.getTimeCreate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().isAfter(from.minusDays(1))) ordersClone = orders; else continue;
             if(!to.isEqual(LocalDate.parse("1970-01-01"))) if(orders.getTimeCreate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().isBefore(to.plusDays(1))) ordersClone = orders; else continue;
-            if(ordersClone != null) {ordersListReturn.add(ordersClone);}
+            if(ordersClone != null) ordersListReturn.add(ordersClone);
         }
         return ordersListReturn.subList(rowFrom,rowTo > ordersListReturn.size() ? ordersListReturn.size() : rowTo);
     }
