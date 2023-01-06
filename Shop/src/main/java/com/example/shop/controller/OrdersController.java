@@ -1,26 +1,26 @@
 package com.example.shop.controller;
 
-import com.example.shop.entity.Product;
-import com.example.shop.service.ProductService;
+import com.example.shop.entity.Orders;
+import com.example.shop.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "product")
-public class ProductController {
+@RequestMapping(value = "orders")
+public class OrdersController {
     @Autowired
-    private ProductService productService;
+    private OrdersService ordersService;
 
     @RequestMapping(value = "")
     public Object all() {
-        return productService.all();
+        return ordersService.all();
     }
     @RequestMapping(value = "",method = RequestMethod.DELETE)
     public void delete(@RequestParam(name = "id") int id) {
-        productService.delete(id);
+        ordersService.delete(id);
     }
     @RequestMapping(value = "",method = RequestMethod.PUT)
-    public void update(@RequestBody Product product) {
-        productService.save(product);
+    public void update(@RequestBody Orders orders) {
+        ordersService.save(orders);
     }
 }

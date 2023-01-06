@@ -21,12 +21,8 @@ public class UserServiceIpm implements UserService{
         userRepository.deleteById(id);
     }
     @Override
-    public void update(User user) {
+    public void save(User user) {
         userRepository.save(user);
-    }
-    @Override
-    public void updates(List<User> userList) {
-        userRepository.saveAll(userList);
     }
 
 }

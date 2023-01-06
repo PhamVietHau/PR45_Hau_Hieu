@@ -15,7 +15,7 @@ public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-//    private int orderId;
+//    private int ordersId;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ordersId")

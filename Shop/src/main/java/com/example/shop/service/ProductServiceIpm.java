@@ -13,7 +13,15 @@ public class ProductServiceIpm implements ProductService{
     private ProductRepository productRepository;
 
     @Override
-    public List<Product> getAll() {
+    public List<Product> all() {
         return (List<Product>) productRepository.findAll();
+    }
+    @Override
+    public void delete(int id) {
+        productRepository.deleteById(id);
+    }
+    @Override
+    public void save(Product product) {
+        productRepository.save(product);
     }
 }
