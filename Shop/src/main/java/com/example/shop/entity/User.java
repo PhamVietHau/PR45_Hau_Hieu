@@ -1,5 +1,7 @@
 package com.example.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,15 +20,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 //    private int roleId;
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Role role;
     private String userName;
     private String password;
     private String email;
     private Date timeCreate;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<Order> orderList;
+    private List<Orders> ordersList;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<ShippingInfo> shippingInfoList;
-    @ManyToOne
-    @JoinColumn(name = "roleId")
-    private Role role;
 }

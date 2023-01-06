@@ -1,5 +1,6 @@
 package com.example.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
@@ -19,6 +20,10 @@ public class ShippingInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 //    private int userId;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
     private String name;
     private String phone;
     private String street;
@@ -26,9 +31,4 @@ public class ShippingInfo {
     private String county;
     private String country;
     private String other;
-    @OneToMany(mappedBy = "shippingInfo")
-    private List<Order> orderList;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
 }

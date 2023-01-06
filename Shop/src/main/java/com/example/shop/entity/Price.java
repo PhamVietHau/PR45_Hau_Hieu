@@ -1,5 +1,6 @@
 package com.example.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,5 @@ public class Price {
     private int price;
     private Date timeStart;
     private Date timeEnd;
-    @OneToMany(mappedBy = "price")
-    private List<Product> productList;
+
 }

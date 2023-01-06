@@ -20,6 +20,4 @@ public class ShippingType {
     private int id;
     private String service;
     private int cost;
-    @OneToMany(mappedBy = "shippingType")
-    private List<Order> orderList;
 }

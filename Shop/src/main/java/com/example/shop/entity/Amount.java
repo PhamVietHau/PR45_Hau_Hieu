@@ -1,32 +1,34 @@
 package com.example.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @Table(name = "amount")
-@IdClass(AmountId.class)
 public class Amount {
 
+    @JsonIgnore
+    @EmbeddedId
+    private AmountPK amountPK;
 //    private int productId;
-//    private int colorId;
-//    private int sizeId;
-//    private int amount;
-    @Id
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @MapsId("productId")
     private Product product;
-    @Id
+//    private int colorId;
     @ManyToOne
-    @JoinColumn(name = "colorId")
+    @MapsId("colorId")
     private Color color;
-    @Id
+//    private int sizeId;
     @ManyToOne
-    @JoinColumn(name = "sizeId")
+    @MapsId("sizeId")
     private Size size;
-    @Column(name = "amount")
     private int amount;
+    private String image;
 }

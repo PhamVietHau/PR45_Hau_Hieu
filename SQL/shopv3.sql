@@ -45,12 +45,11 @@ create table Coupon(
     discount int,
     maxDiscountAmount int,
     expired datetime,
-    `usage` int,
-    `enable` boolean default true
+    `usage` int
 );
 
 
-create table `Order`(
+create table `Orders`(
 	id int primary key auto_increment,
     userId int,
     paymentMethodId int,
@@ -64,7 +63,7 @@ create table `Order`(
 
 create table OrderDetail(
 	id int primary key auto_increment,
-    orderId int,
+    ordersId int,
     productId int,
     quantity int,
     total int
@@ -86,10 +85,8 @@ create table Product(
     productTypeId int,
     `name` varchar(510),
     priceId int,
-    tag varchar(510),
     `description` text,
-    image text,
-    statusId int
+    image text
 );
 
 create table ProductType(
@@ -98,11 +95,11 @@ create table ProductType(
 );
 
 create table Amount(
-	-- id int primary key auto_increment, 
-	productId int,
-    colorId int,
-    sizeId int,
-    amount int
+	product_id int,
+    color_id int,
+    size_id int,
+    amount int,
+    image text
 );
 
 create table Color(
@@ -123,23 +120,33 @@ create table Price(
     timeEnd datetime default current_timestamp
 );
 
+drop trigger if exists delete_order_detail;
+
+delimiter //
+create trigger delete_order_detail after delete on orders for each row
+begin
+	delete from OrderDetail where ordersId = old.id;
+end//
+
 
 insert into `Role` (`role`) values ('ADMIN'),('USER');
 insert into `User` (roleId,userName,`password`,email) values (1,'Admin','Admin','Admin@shops.com'),(2,'User1','User1','User1@gmail.com');
 insert into Color (`name`) values ('Red'),('Blue'),('Green'),('Black');
 insert into Size (`name`) values ('XS'),('S'),('M'),('L'),('XL'),('XXL');
-insert into Coupon values (1,'Tết Nguyên Đán 2023','Mừng Tết Nguyên Đán 2023, Giảm giá sặp sàn','2023',99,1000000,current_timestamp(),999,true);
-insert into Price values (1,799999,current_timestamp(),date_add(current_timestamp(),interval 365 day)),
-	(2,999999,current_timestamp(),date_add(current_timestamp(),interval 365 day));
+insert into Coupon values (1,'Tết Nguyên Đán 2023','Mừng Tết Nguyên Đán 2023, Giảm giá sặp sàn','2023',100,100000,current_timestamp(),999);
+insert into Price values (1,80000,current_timestamp(),date_add(current_timestamp(),interval 365 day)),
+	(2,90000,current_timestamp(),date_add(current_timestamp(),interval 365 day));
 insert into ProductType values (1,'Áo Thun'),(2,'Áo Khoác');
 insert into ShippingType values (1,'Nhanh',50000),(2,'Thường',30000);
 insert into `Status` values (1,'Enable'),(2,'Disable'),(3,'Delete');
-insert into Amount (productId,colorId,sizeId,amount) values (1,3,1,50),(1,3,2,50),(1,3,3,50),(1,3,4,50),(1,3,5,50),(1,3,6,50),
+insert into Amount (product_id,color_id,size_id,amount) values (1,3,1,50),(1,3,2,50),(1,3,3,50),(1,3,4,50),(1,3,5,50),(1,3,6,50),
 	 (2,4,1,50),(2,4,2,50),(2,4,3,50),(2,4,4,50),(2,4,5,50),(2,4,6,50);
-insert into Product values (1,1,'Áo Thun Xanh',1,'','Áo thun xanh','Ao_thun_xanh.png',1),
-	(2,2,'Áo khoác',2,'','Áo khoác','Ao_khoac.png',1);
-
-
+insert into Product values (1,1,'Áo Thun Xanh',1,'Áo thun xanh','Ao_thun_xanh.png'),
+	(2,2,'Áo khoác',2,'Áo khoác','Ao_khoac.png');
+insert into PaymentMethod values (1,'Tiền mặt'),(2,'Bankking');
+insert into ShippingInfo values (1,2,'Ngo huynh hieu','0909090909','88 quang trung','Da nang','Da nang','VN',''),(2,2,'Ngo huynh hieu','0808080808','246 nguyen hue','Da nang','Da nang','VN','');
+insert into orders values (1,2,1,1,570000,1,1,1,current_timestamp()),(2,2,2,null,360000,2,2,2,current_timestamp());
+insert into OrderDetail values (1,1,1,5,400000),(2,1,2,3,270000),(3,2,2,4,360000);
 
 
 

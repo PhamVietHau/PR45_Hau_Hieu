@@ -20,8 +20,4 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "status")
-    private List<Order> orderList;
-    @OneToMany(mappedBy = "status")
-    private List<Product> productList;
 }

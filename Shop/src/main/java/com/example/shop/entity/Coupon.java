@@ -24,7 +24,4 @@ public class Coupon {
     private int maxDiscountAmount;
     private Date expired;
     private int usage;
-    private boolean enable;
-    @OneToMany(mappedBy = "coupon")
-    private List<Order> orderList;
 }

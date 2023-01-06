@@ -11,8 +11,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(value = "all")
-
+    @RequestMapping(value = "")
     public Object getAll() {
         return productService.getAll();
     }

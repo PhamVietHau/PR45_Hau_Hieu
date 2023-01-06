@@ -1,5 +1,6 @@
 package com.example.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
@@ -7,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+
 import java.util.List;
 
 @Entity
@@ -15,28 +16,22 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Table(name = "product")
-public class Product {
+public class Product{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 //    private int productTypeId;
-    private String name;
-//    private int priceId;
-    private String tag;
-    private String description;
-    private String image;
-//    private int statusId;
-    @OneToMany(mappedBy = "product")
-    private List<Amount> amountList;
-    @OneToMany(mappedBy = "product")
-    private List<OrderDetail> orderDetailList;
     @ManyToOne
     @JoinColumn(name = "productTypeId")
     private ProductType productType;
+    private String name;
+//    private int priceId;
     @ManyToOne
     @JoinColumn(name = "priceId")
     private Price price;
-    @ManyToOne
-    @JoinColumn(name = "statusId")
-    private Status status;
+    private String description;
+    private String image;
+
+    @OneToMany(mappedBy = "product")
+    private List<Amount> amountList;
 }

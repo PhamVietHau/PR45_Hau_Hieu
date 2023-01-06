@@ -1,5 +1,6 @@
 package com.example.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,13 +16,15 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 //    private int orderId;
-//    private int productId;
-    private int quantity;
-    private int total;
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "orderId")
-    private Order order;
+    @JoinColumn(name = "ordersId")
+    private Orders orders;
+//    private int productId;
     @ManyToOne
     @JoinColumn(name = "productId")
     private Product product;
+    private int quantity;
+    private int total;
+
 }
