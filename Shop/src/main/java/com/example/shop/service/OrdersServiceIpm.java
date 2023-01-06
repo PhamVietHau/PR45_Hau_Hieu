@@ -11,7 +11,6 @@ import java.util.List;
 public class OrdersServiceIpm implements OrdersService{
     @Autowired
     private OrdersRepository ordersRepository;
-
     @Override
     public List<Orders> all() {
         return (List<Orders>) ordersRepository.findAll();
