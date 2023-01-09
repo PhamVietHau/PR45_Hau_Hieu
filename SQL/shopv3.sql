@@ -136,7 +136,7 @@ insert into Size (`name`) values ('XS'),('S'),('M'),('L'),('XL'),('XXL');
 insert into Coupon values (1,'Tết Nguyên Đán 2023','Mừng Tết Nguyên Đán 2023, Giảm giá sặp sàn','2023',100,100000,current_timestamp(),999);
 insert into Price values (1,80000,current_timestamp(),date_add(current_timestamp(),interval 365 day)),
 	(2,90000,current_timestamp(),date_add(current_timestamp(),interval 365 day));
-insert into ProductType values (1,'Áo Thun'),(2,'Áo Khoác');
+insert into ProductType values (1,'Áo Thun'),(2,'Áo Khoác'),(3,'Quần');
 insert into ShippingType values (1,'Nhanh',50000),(2,'Thường',30000);
 insert into `Status` values (1,'Enable'),(2,'Disable'),(3,'Delete');
 insert into Amount (product_id,color_id,size_id,amount) values (1,3,1,50),(1,3,2,50),(1,3,3,50),(1,3,4,50),(1,3,5,50),(1,3,6,50),
